@@ -1,6 +1,6 @@
 import CostDate from './CostDate';
 import './costitem.css'
-import Card from './Card'
+import Card from '../UI/Card'
 
 function CostItem(props) {
 
