@@ -14,6 +14,24 @@ function Costs(props) {
         setSelectedYear(year)
     }
 
+    const filteredCosts = props.costs.filter(cost => {
+        return cost.date.getFullYear().toString() === selectedYear
+        }
+    )
+
+    let costContent = <p>no costs in {selectedYear} year</p>
+
+    if (filteredCosts.length > 0) {
+        costContent = filteredCosts.map(costs => 
+            <CostItem
+                key={costs.id}
+                date={costs.date} 
+                description={costs.description} 
+                amount={costs.amount}
+            />
+        )
+    }
+
     return(
         <div>
             <Card className='costs'>
@@ -21,7 +39,15 @@ function Costs(props) {
                     year={selectedYear}
                     onChangeYear={yearChangeHandler} 
                 />
-                <CostItem 
+                {/* {filteredCosts.length === 0 ? <p>no costs in {selectedYear} year</p> : filteredCosts.map(costs => 
+                <CostItem
+                    key={costs.id}
+                    date={costs.date} 
+                    description={costs.description} 
+                    amount={costs.amount}
+                />
+                )} */}
+                {/* <CostItem 
                     date={props.costs[0].date} 
                     description={props.costs[0].description} 
                     amount={props.costs[0].amount}
@@ -35,7 +61,8 @@ function Costs(props) {
                     date={props.costs[2].date} 
                     description={props.costs[2].description} 
                     amount={props.costs[2].amount}
-                />
+                /> */}
+            {costContent}
             </Card>
         </div>
     )
