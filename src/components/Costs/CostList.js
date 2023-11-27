@@ -8,9 +8,11 @@ const CostList = (props) => {
 
     if (props.costs.length === 0) {
         return <h2 className="cost-list__fallback">
-                    no costs in this year
+                    no costs in {props.year} year
                </h2>
     }
+
+    // console.log(props.year);
     
     return <ul className="cost-list">
         {props.costs.map(costs => 
