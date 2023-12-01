@@ -17,11 +17,11 @@ const CostDiagram = (props) => {
         {label: 'Dec', value: 0}
     ]
 
-    // for (const cost of props.costs){
-    //     const costMonth = cost.data.getMonth();
-    //     diaramDataSets[costMonth].value += cost.amount;
-    // }
-    
+    for (const cost of props.costs){
+        console.log(cost);
+        const costMonth = cost.date.getMonth();
+        diaramDataSets[costMonth].value += cost.amount;
+    }
 
     return <Diagram dataSets={diaramDataSets}/>
 }

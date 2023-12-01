@@ -2,7 +2,6 @@ import DiagramBar from "./DiagramBar"
 import './diagram.css'
 
 const Diagram = (props) => {
-
     const dataSetsValues = props.dataSets.map(dataSet => dataSet.value);
 
     const maxMonthCosts = Math.max(...dataSetsValues)
